@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import "./index.css";
+import Signup from "./pages/Signup/Signup.tsx";
+import Homepage from "./pages/Homepage/Homepage.tsx";
+import Login from "./pages/Login/Login.tsx";
+import Projectlist from "./pages/Projectlist/Projectlist.tsx";
+import Createproject from "./pages/Createproject/Createproject.tsx";
+import Createtask from "./pages/Createtask/Createtask.tsx";
+import Wilderness from "./pages/Wilderness/Wilderness.tsx";
+import CreateMergePage from "./pages/Createmerge/Createmerge.tsx";
+import Lobby from "./pages/Lobby/Lobby.tsx";
+import DemoPage from "./pages/DemoPage/Demo.tsx";
+import MailPage from "./pages/MailPage/MailPage.tsx";
+// import Mail from "./pages/Mail/Mail.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="/auth/signup" element={<Signup />}></Route>
+          <Route path="/auth/login" element={<Login />}></Route>
+          <Route path="/projects/list" element={<Projectlist />}></Route>
+          <Route path="/projects/create" element={<Createproject />}></Route>
+          <Route path="/task/create" element={<Createtask />}></Route>
+          {/* <Route path="/tasks/create-mr" element={<Createmerge />}></Route> */}
+          <Route path="/project/create" element={<Createproject />}></Route>
+          <Route path="/mr/*" element={<CreateMergePage />}></Route>
+          <Route path="/lobby/*" element={<Lobby />}></Route>
+          <Route path="/mail/*" element={<MailPage />}></Route>
+
+          <Route path="/demo" element={<DemoPage />}></Route>
+
+
+          <Route path="*" element={<Wilderness />}></Route>
+
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

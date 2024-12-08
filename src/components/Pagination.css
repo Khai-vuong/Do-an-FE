@@ -1,0 +1,38 @@
+.pagination-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  
+  .pagination-controls button {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+
+    color: black;
+    font-weight: bold;
+  }
+  
+  .pagination-controls button.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .pagination-controls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .pagination-currentPage {
+    width: 40px;
+    text-align: center;
+    text-size-adjust: 200%;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+  }
